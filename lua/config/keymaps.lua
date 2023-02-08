@@ -14,8 +14,16 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- General hotkeys
-map("n", "<leader>pf", "lua vim.lsp.buf.format() <CR>", { desc = "Format buffer" })
-map("n", "s", "xi", { desc = "delete char and enter insert" })
+map("n", "<leader>pf", "<cmd>lua vim.lsp.buf.format() <CR>", { desc = "Format buffer" })
+vim.keymap.del("n", "s")
+-- map("n", "s", "xi", { desc = "delete char and enter insert" })
+map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = "toggle comment" })
+map(
+  "v",
+  "<leader>/",
+  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = "toggle comment" }
+)
 
 -- Terminal
 local function termcodes(str)
