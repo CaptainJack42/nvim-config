@@ -15,8 +15,6 @@ end
 
 -- General hotkeys
 map("n", "<leader>pf", "<cmd>lua vim.lsp.buf.format() <CR>", { desc = "Format buffer" })
-vim.keymap.del("n", "s")
--- map("n", "s", "xi", { desc = "delete char and enter insert" })
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = "toggle comment" })
 map(
   "v",

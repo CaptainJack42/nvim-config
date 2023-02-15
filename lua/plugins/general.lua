@@ -179,7 +179,6 @@ return {
 
   {
     "s1n7ax/nvim-window-picker",
-    tag = "v1.*",
     config = function()
       require("window-picker").setup()
     end,
@@ -194,5 +193,21 @@ return {
         },
       },
     },
+  },
+  {
+    "ggandor/leap.nvim",
+    event = "VeryLazy",
+    dependencies = { { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
+    config = function(_, opts)
+      local leap = require("leap")
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      vim.keymap.set("n", "m", "<Plug>(leap-forward-to)")
+      vim.keymap.set("n", "M", "<Plug>(leap-backward-to")
+      leap.add_default_mappings(false)
+      vim.keymap.del({ "x", "o" }, "x")
+      vim.keymap.del({ "x", "o" }, "X")
+    end,
   },
 }
