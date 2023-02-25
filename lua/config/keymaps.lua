@@ -14,7 +14,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- General hotkeys
-map("n", "<leader>pf", "<cmd>lua vim.lsp.buf.format() <CR>", { desc = "Format buffer" })
 map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = "toggle comment" })
 map(
   "v",
