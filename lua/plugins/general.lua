@@ -205,6 +205,8 @@ return {
       end
       vim.keymap.set("n", "m", "<Plug>(leap-forward-to)")
       vim.keymap.set("n", "M", "<Plug>(leap-backward-to")
+      vim.keymap.set("v", "m", "<Plug>(leap-forward-to)")
+      vim.keymap.set("v", "M", "<Plug>(leap-backward-to")
       leap.add_default_mappings(false)
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
