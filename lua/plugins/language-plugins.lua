@@ -25,4 +25,13 @@ return {
       require("crates").setup()
     end,
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        pyright = {},
+      },
+    },
+  },
 }
