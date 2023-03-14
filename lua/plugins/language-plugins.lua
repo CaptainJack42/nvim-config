@@ -34,4 +34,38 @@ return {
       },
     },
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "c",
+          "cpp",
+          "rust",
+          "vim",
+          "lua",
+          "python",
+          "bash",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+          "latex",
+          "markdown",
+          "make",
+          "cmake",
+          "llvm",
+          "ninja",
+        },
+        sync_install = true,
+        auto_install = true,
+
+        highlight = {
+          enable = true,
+          additional_vim_regex_hightlighting = false,
+        },
+      })
+    end,
+  },
 }
