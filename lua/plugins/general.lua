@@ -15,12 +15,12 @@ return {
     "VonHeikemen/fine-cmdline.nvim",
     enabled = false,
   },
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   keys = function()
+  --     return {}
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
