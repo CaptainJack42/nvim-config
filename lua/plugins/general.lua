@@ -15,12 +15,12 @@ return {
     "VonHeikemen/fine-cmdline.nvim",
     enabled = false,
   },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   keys = function()
-  --     return {}
-  --   end,
-  -- },
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
+    end,
+  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -115,8 +115,8 @@ return {
         { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
         { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
         { "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-        { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-        { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+        { "<leader>fg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+        { "<leader>fG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
         { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
         { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
         { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
