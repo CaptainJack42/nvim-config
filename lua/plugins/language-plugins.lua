@@ -57,6 +57,7 @@ return {
           "cmake",
           "llvm",
           "ninja",
+          "kdl",
         },
         sync_install = true,
         auto_install = true,
