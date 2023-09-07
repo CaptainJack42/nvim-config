@@ -16,6 +16,56 @@ return {
     enabled = false,
   },
   {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, false },
+      { "S", mode = { "n", "o", "x" }, false },
+      {
+        "z",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "Z",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}
@@ -209,25 +259,6 @@ return {
   },
 
   {
-    "ggandor/leap.nvim",
-    event = "VeryLazy",
-    dependencies = { { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
-    config = function(_, opts)
-      local leap = require("leap")
-      for k, v in pairs(opts) do
-        leap.opts[k] = v
-      end
-      vim.keymap.set("n", "m", "<Plug>(leap-forward-to)")
-      vim.keymap.set("n", "M", "<Plug>(leap-backward-to")
-      vim.keymap.set("v", "m", "<Plug>(leap-forward-to)")
-      vim.keymap.set("v", "M", "<Plug>(leap-backward-to")
-      leap.add_default_mappings(false)
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
-    end,
-  },
-
-  {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({
@@ -244,5 +275,34 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        keymaps = {
+          close = { "<C-c>" },
+          submit = "<C-Enter>",
+          yank_last = "<C-y>",
+          yank_last_code = "<C-k>",
+          scroll_up = "<C-u>",
+          scroll_down = "<C-d>",
+          toggle_settings = "<C-o>",
+          new_session = "<C-n>",
+          cycle_windows = "<Tab>",
+          -- in the Sessions pane
+          select_session = "<Space>",
+          rename_session = "r",
+          delete_session = "d",
+        },
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
   },
 }
