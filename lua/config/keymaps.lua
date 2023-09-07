@@ -4,6 +4,8 @@
 
 local Util = require("lazyvim.util")
 
+vim.g.maplocalleader = "<"
+
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
@@ -52,3 +54,9 @@ map("n", "<leader>rd", ":RustDebuggables <CR>", { desc = "Rust debuggables" })
 map("n", "<leader>rk", ":RustMoveItemUp <CR>", { desc = "Rust move item up" })
 map("n", "<leader>rj", ":RustMoveItemDown <CR>", { desc = "Rust move item down" })
 map("n", "<leader>rh", ":RustHoverActions <CR>", { desc = "Rust Hover Actions (help)" })
+
+-- Neorg bindings
+map("n", "<leader>nw", ":Neorg workspace work<CR>", { desc = "Open Neorg workspace work" })
+map("n", "<leader>np", ":Neorg workspace home<CR>", { desc = "Open Neorg workspace home" })
+map("n", "<leader>ni", ":Neorg index<CR>", { desc = "Open the Neorg index file" })
+map("n", "<leader>nr", ":Neorg return<CR>", { desc = "Close all norg buffers and return to the Project" })
